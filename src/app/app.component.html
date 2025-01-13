@@ -1,13 +1,36 @@
-<div style="display: grid; place-items: center; height: 100vh;">
+<div style="position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);">
     <div>
-        Count : <span> {{count()}} </span><br>
-        Double Count : <span> {{doubleCount()}} </span>
+        <h3>Basic Counter</h3>
+        Count : <span> {{count1()}} </span><br>
+        Double Count : <span> {{doubleCount1()}} </span>
         <br>
         <br>
         <div>
             <button (click)="increment()">+</button>&nbsp;
             <button (click)="decrement()">-</button>&nbsp;
             <button (click)="reset()">Reset</button>
+        </div>
+    </div>
+    <div>
+        <h3>setInterval Counter</h3>
+        Count : <span> {{count2()}} </span><br>
+        Double Count : <span> {{doubleCount2()}} </span>
+        <br>
+        <br>
+        <div>
+            <button (click)="start()">Start</button>&nbsp;
+            <button (click)="stop()">Stop</button>&nbsp;
+            <button (click)="clear()">Clear</button>
+        </div>
+    </div>
+    <div>
+        <h3>setTimeout Counter</h3>
+        Count : <span> {{count3()}} </span><br>
+        Double Count : <span> {{doubleCount3()}} </span>
+        <br>
+        <br>
+        <div>
+            <button (click)="run()">Run</button>
         </div>
     </div>
 </div>
