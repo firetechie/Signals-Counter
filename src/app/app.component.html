@@ -1,0 +1,13 @@
+<div style="display: grid; place-items: center; height: 100vh;">
+    <div>
+        Count : <span> {{count()}} </span><br>
+        Double Count : <span> {{doubleCount()}} </span>
+        <br>
+        <br>
+        <div>
+            <button (click)="increment()">+</button>&nbsp;
+            <button (click)="decrement()">-</button>&nbsp;
+            <button (click)="reset()">Reset</button>
+        </div>
+    </div>
+</div>
