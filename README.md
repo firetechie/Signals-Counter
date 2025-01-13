@@ -1,6 +1,6 @@
 # SignalCounter
 
-Demo :-
+Demo :- </ br>
 <img src="https://github.com/firetechie/Signals-Counter/blob/master/UI.JPG" />
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
