@@ -1,4 +1,4 @@
-import { Component, computed, effect, signal, OnDestroy } from '@angular/core';
+import { Component, computed, effect, signal, OnDestroy, linkedSignal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent implements OnDestroy {
   count2 = signal(0);
   doubleCount2 = computed(() => this.count2() * 2)
   count3 = signal(0);
-  doubleCount3 = computed(() => this.count3() * 2)
+  doubleCount3 = linkedSignal(() => this.count3() * 2)
   intervalId !: any;
 
   constructor() {
@@ -57,6 +57,10 @@ export class AppComponent implements OnDestroy {
     setTimeout(() => {
       this.count3.update((c) => c + 1)
     }, 500);
+  }
+
+  TenX(): void {
+    this.doubleCount3.update((x) => x * 10)
   }
 
   ngOnDestroy(): void {
