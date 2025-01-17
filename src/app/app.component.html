@@ -1,5 +1,10 @@
 <div style="position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);">
     <div>
+        <input type="text" (keyup)="onType($event)" />&nbsp;
+        <span>{{typedText()}}</span>
+    </div>
+    <br>
+    <div>
         <h3>Basic Counter</h3>
         Count : <span> {{count1()}} </span><br>
         Double Count : <span> {{doubleCount1()}} </span>
@@ -33,5 +38,11 @@
             <button (click)="run()">Run</button>&nbsp;
             <button (click)="TenX()">10x</button>
         </div>
+    </div>
+    <br>
+    <div>
+        <h3>Colors :-</h3>
+        <span>{{color()}}</span><br>
+        <span>{{newColorRender()}}</span>
     </div>
 </div>
