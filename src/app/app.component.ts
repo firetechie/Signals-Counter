@@ -1,8 +1,9 @@
-import { Component, computed, effect, signal, OnDestroy, linkedSignal, OnInit } from '@angular/core';
+import { Component, computed, effect, signal, OnDestroy, linkedSignal, OnInit, model } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -14,10 +15,14 @@ export class AppComponent implements OnInit, OnDestroy {
   // 1=> before angular is introducing signals() we were dependent on angular change detection strategy/cycles for logging it using ngDoCheck() hook.
   // If we make the application as zoneless by removing Zone.js from polyfills object in Angular.json file and replace provideZoneChangeDetection() with provideExperimentalZonelessChangeDetection() app.config.ts angular doesn't have enoguh capacity to bind the changes in template so that's why Signals() came into the picture.
   // 2=> ChangeDetecionStrategy disadvantage is it will execute even if we trigger the event but not chnging the value.
-  // 3=> since angular depends on zone.js it increases the bundle size and it will inform angular which component/which part of the component has been changed even if small changes happened in one component it will renders all the component
-  // zoneless will hdanle change detection by default for callbacks()/manual event trigger, observable async pipe, property received as input() without even usinng signals()
+  // 3=> since angular depends on zone.js it increases the bundle size and it will not inform angular which component/which part of the component has been changed even if small changes happened in one component it will renders all the component
+  // zoneless will handle change detection by default for callbacks()/manual event trigger, observable async pipe, property received as input() without even using signals()
   // 4=> CMD to clean unused imports in standalone components
   // ng g @angular/core:cleanup-unused-imports 
+
+
+  // HMR => Hot Module Replacement, as the name implies that it will update only particular portion or value without reloading entire page, instant feedbak is the advantage. In v.19 by default enabled for styling and v19.1.1 enabeld for inline and external template. we can disable it in angular.json like 'HMR' : false for development environment. or run ng server --no-hmr
+
 
   typedText = signal('type something');
 
@@ -31,6 +36,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   color = signal<string[]>(['Red', 'Blue'])
   newColorRender = signal<string>('')
+
+  keyUpTyping = model<string>('')
 
   constructor() {
     effect(() => {

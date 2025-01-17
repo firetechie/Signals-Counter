@@ -1,5 +1,6 @@
-<div style="position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);">
+<div id="container">
     <div>
+        <h2>signal()</h2>
         <input type="text" (keyup)="onType($event)" />&nbsp;
         <span>{{typedText()}}</span>
     </div>
@@ -44,5 +45,11 @@
         <h3>Colors :-</h3>
         <span>{{color()}}</span><br>
         <span>{{newColorRender()}}</span>
+    </div>
+    <br>
+    <div>
+        <h2>model signal()</h2>
+        <input type="text" [(ngModel)]="keyUpTyping">&nbsp;
+        <span id="text">{{keyUpTyping()}}</span>
     </div>
 </div>
